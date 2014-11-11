@@ -1,15 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package flow.solid;
 
-/**
- *
- * @author Rihards
- */
 public class WordPair {
     
+    private String danish;
+    private String latvian;
+    
+    public WordPair (String dan, String lat){  //constructs object of this class
+    
+        this.danish = dan;
+        this.latvian = lat;
+    }
+
+    public String getDanish() {
+        return danish;
+    }
+
+    public String getLatvian() {
+        return latvian;
+    }   
 }
