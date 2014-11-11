@@ -10,7 +10,7 @@ public class Control implements WordPairControlInterface {
 
     @Override
     public int size() {
-
+       
     }
 
     @Override
