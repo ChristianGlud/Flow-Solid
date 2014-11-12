@@ -3,8 +3,8 @@ package controller;
 
 public class WordPair {
     
-    private String danish;
-    private String latvian;
+    public String danish;
+    public String latvian;
     
     public WordPair (String dan, String lat){  //constructs object of this class
     

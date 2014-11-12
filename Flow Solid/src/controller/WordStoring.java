@@ -2,14 +2,15 @@
 package controller;
 
 
-import java.util.Hashtable;
+import java.util.ArrayList;
 
 public class WordStoring {
     
-    private Hashtable<String,String> pairs = new Hashtable<String,String>();
+    FileHandler fl = new FileHandler();
+    private ArrayList<wordPair> pairs = new ArrayList<wordPair>();
     
-    public void add(){
-    pairs.put("bil","mašīna");
-    }
+//    public void add(){
+//    pairs.add("bil","mašīna");
+//    }
     
 }
