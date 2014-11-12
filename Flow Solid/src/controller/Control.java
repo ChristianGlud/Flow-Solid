@@ -1,18 +1,22 @@
 
 package controller;
 
-import utilities.WordPairControlInterface;
+import flow.solid.WordPairControlInterface;
+import utilities.WordStoring;
 
 public class Control implements WordPairControlInterface {
 
+    WordStoring pairs = new WordStoring();
+    pairs.add();
+    
     @Override
     public void add(String question, String answer) {
-        
+     
     }
 
     @Override
     public int size() {
-       
+       return pairs.size();
     }
 
     @Override

@@ -19,4 +19,11 @@ public class WordPair {
     public String getLatvian() {
         return latvian;
     }   
+    
+    public String toFile() {
+        
+        String wordPair = danish + "," + latvian;
+        return wordPair;
+    
+    }
 }
