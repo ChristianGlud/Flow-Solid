@@ -55,7 +55,7 @@ public class FileHandler
     public static ArrayList<String> load(String filename)
     {
         Scanner file_scanner = null;
-        ArrayList<String> stringArray = new ArrayList<String>();
+        ArrayList<String> wordPair = new ArrayList<String>();
 
         try {
             file_scanner = new Scanner(new File(filename));  //Connection to the file using the Scanner object
@@ -66,11 +66,11 @@ public class FileHandler
         }
 
         while ( file_scanner.hasNextLine() ) {  //File found. Reading one line.             
-            stringArray.add( file_scanner.nextLine() );  //Reading in a single line and saving in the ArrayList
+            wordPair.add( file_scanner.nextLine() );  //Reading in a single line and saving in the ArrayList
         }
 
         file_scanner.close();  //Closing the file
-        return stringArray;    //returning the arraylist
+        return wordPair;    //returning the arraylist
     }
 }
    
