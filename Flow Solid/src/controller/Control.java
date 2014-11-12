@@ -12,7 +12,7 @@ public class Control implements WordPairControlInterface {
     //pairs.add();
     @Override
     public void add(String question, String answer) {
-     pairs.put(new WordPair(answer, answer));
+    pairs.put(new WordPair(question, answer));
     }
 
     @Override
