@@ -79,8 +79,14 @@ public class GUI extends javax.swing.JFrame {
 
         Guess.setText("Guess");
 
+        result.setEditable(false);
         result.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         result.setText("Your Answer Was Correct / Wrong");
+        result.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultActionPerformed(evt);
+            }
+        });
 
         Add.setText("Add New Word");
 
@@ -157,6 +163,10 @@ public class GUI extends javax.swing.JFrame {
     private void answerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_answerActionPerformed
+
+    private void resultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resultActionPerformed
 
     /**
      * @param args the command line arguments
