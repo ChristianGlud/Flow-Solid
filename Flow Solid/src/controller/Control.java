@@ -2,17 +2,17 @@
 package controller;
 
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Control implements WordPairControlInterface {
 
-   ArrayList<WordPair> pairs = new ArrayList<WordPair>();
+  private ArrayList<WordPair> pairs = new ArrayList<WordPair>();
     
-    //WordStoring pairs = new WordStoring();
-    //pairs.add();
     @Override
     public void add(String question, String answer) {
-    pairs.add(new WordPair(question, answer));
+    
+        pairs.add(new WordPair(question, answer));
     }
 
     @Override
@@ -22,27 +22,27 @@ public class Control implements WordPairControlInterface {
 
     @Override
     public String getRandomQuestion() {
-
+        return null;
     }
 
     @Override
     public boolean checkGuess(String question, String quess) {
-
+        return false ;
     }
 
     @Override
     public String lookup(String question) {
-
+        return null;
     }
 
     @Override
     public boolean load(String filename) {
-
+        return false;
     }
 
     @Override
     public boolean save(String filename) {
-
+        return false;
     }
 
     @Override
