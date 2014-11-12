@@ -8,7 +8,7 @@ public class WordStoring {
     
     FileHandler fl = new FileHandler();
     
-    private ArrayList<wordPairs> pairs = new ArrayList<wordPairs>();
+   // private ArrayList<WordPairs> pairs = new ArrayList<WordPairs>();
     
 //    public void add(){
 //    pairs.add("bil","mašīna");
