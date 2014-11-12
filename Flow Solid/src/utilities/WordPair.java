@@ -1,5 +1,5 @@
 
-package utilities;
+package Utilities;
 
 public class WordPair {
     
