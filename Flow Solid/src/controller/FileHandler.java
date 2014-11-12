@@ -52,13 +52,13 @@ public class FileHandler
      * @return and ArrayList<String> were each String object is one line in the file.
      * If something goes wrong and an exception is raised this method will return null!
      */
-    public static ArrayList<WordPair> load(String filename)
+    public  ArrayList<WordPair> load(String filename)
     {
         Scanner file_scanner = null;
-        ArrayList<WordPair> wordPairs = new ArrayList<WordPair>();
+        ArrayList<WordPair> tempPairs = new ArrayList<WordPair>();
 
         try {
-            file_scanner = new Scanner(new File(filename));  //Connection to the file using the Scanner object
+            file_scanner = new Scanner(new File("words.txt"));  //Connection to the file using the Scanner object
         } catch (FileNotFoundException ex) {
             System.out.println("Could not find the file to load from! Returning null.");
             ex.printStackTrace();
@@ -72,11 +72,11 @@ public class FileHandler
             String latvian = tokens[1].trim();
             
             WordPair pair = new WordPair(danish, latvian);
-            wordPairs.add(pair);  //Reading in a single line and saving in the ArrayList
+            tempPairs.add(pair);  //Reading in a single line and saving in the ArrayList
         }
         file_scanner.close();  //Closing the file
-        return wordPairs;   //return the arraylist.
-
+        return tempPairs;   //return the arraylist.
+        
     }
 }
    
