@@ -52,10 +52,10 @@ public class FileHandler
      * @return and ArrayList<String> were each String object is one line in the file.
      * If something goes wrong and an exception is raised this method will return null!
      */
-    public static ArrayList<String> load(String filename)
+    public static ArrayList<WordPair> load(String filename)
     {
         Scanner file_scanner = null;
-        ArrayList<String> wordPair = new ArrayList<String>();
+        ArrayList<WordPair> wordPairs = new ArrayList<WordPair>();
 
         try {
             file_scanner = new Scanner(new File(filename));  //Connection to the file using the Scanner object
@@ -65,12 +65,18 @@ public class FileHandler
             return null;  //If something goes wrong the method returns null
         }
 
-        while ( file_scanner.hasNextLine() ) {  //File found. Reading one line.             
-            wordPair.add( file_scanner.nextLine() );  //Reading in a single line and saving in the ArrayList
+        while ( file_scanner.hasNextLine() ) {  //File found. Reading one line.     
+            String str = file_scanner.nextLine();
+            String[] tokens = str.split(",");
+            String danish = tokens[0].trim();
+            String latvian = tokens[1].trim();
+            
+            WordPair pair = new WordPair(danish, latvian);
+            wordPairs.add(pair);  //Reading in a single line and saving in the ArrayList
         }
-
         file_scanner.close();  //Closing the file
-        return wordPair;    //returning the arraylist
+        return wordPairs;   //return the arraylist.
+
     }
 }
    

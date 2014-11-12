@@ -6,13 +6,13 @@ import java.util.Hashtable;
 
 public class Control implements WordPairControlInterface {
 
-    Hashtable<String,String> pairs = new Hashtable<String,String>();
+   ArrayList<WordPair> pairs = new ArrayList<WordPair>();
     
     //WordStoring pairs = new WordStoring();
     //pairs.add();
     @Override
     public void add(String question, String answer) {
-    pairs.put(new WordPair(question, answer));
+    pairs.add(new WordPair(question, answer));
     }
 
     @Override
