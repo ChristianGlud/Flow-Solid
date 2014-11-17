@@ -5,4 +5,4 @@ bil, mašīna
 pude, spilvens
 glas, glāze
 vej, iela
-
+, 

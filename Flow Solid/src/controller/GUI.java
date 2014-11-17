@@ -151,8 +151,8 @@ public class GUI extends javax.swing.JFrame {
                                 .addGap(13, 13, 13)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
-                        .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150)))
+                        .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -226,7 +226,7 @@ public class GUI extends javax.swing.JFrame {
         String quest = question.getText(); // stores asked word in string
         
         if (answer.getText().length()==0) { // makes sure you type something in guess area
-            result.setText("Type Latvian word");
+            result.setText("Type in Latvian word");
         }
         else if (control.checkGuess(quest, guess)) { // checks if guess was wrong or right.
             result.setText("Correct!");
