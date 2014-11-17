@@ -1,21 +1,17 @@
-
 package controller;
-
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Control implements WordPairControlInterface {
 
-  //private ArrayList<WordPair> pairs = new ArrayList();
-  private Random rand;
-  FileHandler fh = new FileHandler();
-  
-    public Control(){   //constructor
-    //this.pairs = new ArrayList();
-    this.rand = new Random();
+    private Random rand;
+    FileHandler fh = new FileHandler();
+
+    public Control() {   //constructor
+        this.rand = new Random();
     }
-    
+
     @Override
     public void add(String question, String answer) {
         fh.add(question, answer);
@@ -23,14 +19,14 @@ public class Control implements WordPairControlInterface {
 
     @Override
     public int size() {
-      return fh.getSize();
+        return fh.getSize();
     }
 
     @Override
-    public String getRandomQuestion() {  
+    public String getRandomQuestion() {
         return fh.getRandomQuestion();
-    }  
-    
+    }
+
     @Override
     public boolean checkGuess(String question, String quess) {
         return fh.checkGuess(question, quess);
@@ -43,12 +39,12 @@ public class Control implements WordPairControlInterface {
 
     @Override
     public boolean load(String filename) {
-       try{ 
-           fh.load(filename);
-       }catch (Exception e){
-           return false;
-       }
-       return true;
+        try {
+            fh.load(filename);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -65,5 +61,5 @@ public class Control implements WordPairControlInterface {
     public void clear() {
         fh.clear();
     }
-    
+
 }

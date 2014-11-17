@@ -5,8 +5,6 @@ package controller;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 /**
  *
  * @author Christian
@@ -14,6 +12,7 @@ package controller;
 public class GUI extends javax.swing.JFrame {
 
     WordPairControlInterface control;
+
     /**
      * Creates new form GUI
      */
@@ -21,7 +20,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         control = new Control(); // creates an object of control class
         control.load("words.txt"); // loads txt file when app is opened
-        
+
     }
 
     /**
@@ -209,9 +208,9 @@ public class GUI extends javax.swing.JFrame {
         String newLatv = answer.getText(); // creates String of new latvian word
         control.add(newDane, newLatv); // add new wordpair to ArrayList
         control.save("words.txt"); // saves new wordpair to txt file
-        answer.setText(""); // sets empty space un answer texfield
+        answer.setText(""); // sets empty space in answer texfield
         question.setText(""); // sets empty space in question textfield
-        
+
     }//GEN-LAST:event_AddActionPerformed
 
     private void nextWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextWordActionPerformed
@@ -224,16 +223,15 @@ public class GUI extends javax.swing.JFrame {
     private void GuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuessActionPerformed
         String guess = answer.getText(); // stores guesed word in string
         String quest = question.getText(); // stores asked word in string
-        
-        if (answer.getText().length()==0) { // makes sure you type something in guess area
+
+        if (answer.getText().length() == 0) { // makes sure you type something in guess area
             result.setText("Type in Latvian word");
-        }
-        else if (control.checkGuess(quest, guess)) { // checks if guess was wrong or right.
+        } else if (control.checkGuess(quest, guess)) { // checks if guess was wrong or right.
             result.setText("Correct!");
-        }else
-        result.setText("Wrong!");
-        
-// TODO add your handling code here:
+        } else {
+            result.setText("Wrong!");
+        }
+
     }//GEN-LAST:event_GuessActionPerformed
 
     private void DictionaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DictionaryActionPerformed
