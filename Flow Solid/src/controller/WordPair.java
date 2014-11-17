@@ -22,7 +22,7 @@ public class WordPair {
     
     public String toFile() {
         
-        String wordPair = danish + "," + latvian;
+        String wordPair = danish + ", " + latvian;
         return wordPair;
     
     }

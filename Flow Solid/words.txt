@@ -1,1 +1,8 @@
-﻿bil, car
+glas, glāze
+bord, galds
+bil, mašīna
+øl, alus
+pude, spilvens
+glas, glāze
+vej, iela
+

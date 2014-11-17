@@ -13,11 +13,15 @@ package controller;
  */
 public class GUI extends javax.swing.JFrame {
 
+    WordPairControlInterface control;
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        control = new Control(); // creates an object of control class
+        control.load("words.txt"); // loads txt file when app is opened
+        
     }
 
     /**
@@ -39,9 +43,11 @@ public class GUI extends javax.swing.JFrame {
         result = new javax.swing.JTextField();
         Add = new javax.swing.JButton();
         Dictionary = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTextField1.setEditable(false);
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("LANGUAGE TRAINER");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -50,9 +56,11 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jTextField2.setEditable(false);
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("Danish:");
 
+        jTextField3.setEditable(false);
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Latvian:");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -76,12 +84,20 @@ public class GUI extends javax.swing.JFrame {
         });
 
         nextWord.setText("Next");
+        nextWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextWordActionPerformed(evt);
+            }
+        });
 
         Guess.setText("Guess");
+        Guess.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuessActionPerformed(evt);
+            }
+        });
 
-        result.setEditable(false);
         result.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        result.setText("Your Answer Was Correct / Wrong");
         result.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resultActionPerformed(evt);
@@ -89,8 +105,20 @@ public class GUI extends javax.swing.JFrame {
         });
 
         Add.setText("Add New Word");
+        Add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddActionPerformed(evt);
+            }
+        });
 
         Dictionary.setText("Dictionary");
+        Dictionary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DictionaryActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Your Guess was:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,11 +129,6 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Add))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField2)
                             .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
@@ -118,7 +141,14 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(Dictionary)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(nextWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Guess, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))))
+                                .addComponent(Guess, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Add))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(150, 150, 150)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -138,10 +168,12 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(Guess))
                 .addGap(18, 18, 18)
                 .addComponent(Dictionary)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(Add)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -167,6 +199,45 @@ public class GUI extends javax.swing.JFrame {
     private void resultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resultActionPerformed
+
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+        String newDane = question.getText(); //creates String of new danish word
+        String newLatv = answer.getText(); // creates String of new latvian word
+        control.add(newDane, newLatv); // add new wordpair to ArrayList
+        control.save("words.txt"); // saves new wordpair to txt file
+        answer.setText(""); // sets empty space un answer texfield
+        question.setText(""); // sets empty space in question textfield
+        
+    }//GEN-LAST:event_AddActionPerformed
+
+    private void nextWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextWordActionPerformed
+        String str = control.getRandomQuestion(); //saves random danish word to String
+        question.setText(str); // shows new danish word string to question arrea
+        result.setText("");
+        answer.setText("");
+    }//GEN-LAST:event_nextWordActionPerformed
+
+    private void GuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuessActionPerformed
+        String guess = answer.getText(); // stores guesed word in string
+        String quest = question.getText(); // stores asked word in string
+        
+        if (control.checkGuess(quest, guess)) { // checks if guess was wrong or right.
+            result.setText("Correct!");
+        }else
+        result.setText("Wrong!");
+//        if (control.checkGuess(null, guess)) {
+//            result.setText("Type Latvian word");
+//        }
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_GuessActionPerformed
+
+    private void DictionaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DictionaryActionPerformed
+        String quest = question.getText(); //stores danish word in string
+        String look = control.lookup(quest); // looks for right latvian word and stores it in string
+        answer.setText(look); // outputs latvian word in textarea
+
+    }//GEN-LAST:event_DictionaryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,6 +279,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton Dictionary;
     private javax.swing.JButton Guess;
     private javax.swing.JTextField answer;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

@@ -1,4 +1,0 @@
-bil, mašīna
-hus, māja
-stol, krēsls
-bord, galds

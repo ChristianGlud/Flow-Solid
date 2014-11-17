@@ -3,51 +3,65 @@ package controller;
 
 
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.Random;
 
 public class Control implements WordPairControlInterface {
 
-  private ArrayList<WordPair> pairs = new ArrayList<WordPair>();
+  //private ArrayList<WordPair> pairs = new ArrayList();
+  private Random rand;
+  FileHandler fh = new FileHandler();
+  
+    public Control(){   //constructor
+    //this.pairs = new ArrayList();
+    this.rand = new Random();
+    }
     
     @Override
     public void add(String question, String answer) {
-    
-        pairs.add(new WordPair(question, answer));
+        fh.add(question, answer);
     }
 
     @Override
     public int size() {
-       return pairs.size();
+      return fh.getSize();
     }
 
     @Override
-    public String getRandomQuestion() {
-        return null;
-    }
-
+    public String getRandomQuestion() {  
+        return fh.getRandomQuestion();
+    }  
+    
     @Override
     public boolean checkGuess(String question, String quess) {
-        return false ;
+        return fh.checkGuess(question, quess);
     }
 
     @Override
     public String lookup(String question) {
-        return null;
+        return fh.lookup(question);
     }
 
     @Override
     public boolean load(String filename) {
-        return false;
+       try{ 
+           fh.load("words.txt");
+       }catch (Exception e){
+       }
+       return false;
     }
 
     @Override
     public boolean save(String filename) {
+        try {
+            fh.save("words.txt");
+        } catch (Exception e) {
+        }
         return false;
     }
 
     @Override
     public void clear() {
-
+        fh.clear();
     }
     
 }
