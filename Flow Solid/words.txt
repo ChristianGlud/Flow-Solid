@@ -1,8 +1,15 @@
+hest, horse
+hus, house
+bord, table
+Peter, is King
+stol, krēsls
 glas, glāze
-bord, galds
+flaske, pudele
+cykel, ritenis
 bil, mašīna
-øl, alus
-pude, spilvens
-glas, glāze
-vej, iela
-, 
+vej, ceļš
+tog, vilciens
+skole, skola
+sukker, cukurs
+spiser, ēst
+
