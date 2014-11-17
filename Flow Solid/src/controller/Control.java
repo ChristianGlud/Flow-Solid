@@ -44,19 +44,21 @@ public class Control implements WordPairControlInterface {
     @Override
     public boolean load(String filename) {
        try{ 
-           fh.load("words.txt");
+           fh.load(filename);
        }catch (Exception e){
+           return false;
        }
-       return false;
+       return true;
     }
 
     @Override
     public boolean save(String filename) {
         try {
-            fh.save("words.txt");
+            fh.save(filename);
         } catch (Exception e) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override
