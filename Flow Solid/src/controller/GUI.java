@@ -225,13 +225,13 @@ public class GUI extends javax.swing.JFrame {
         String guess = answer.getText(); // stores guesed word in string
         String quest = question.getText(); // stores asked word in string
         
-        if (control.checkGuess(quest, guess)) { // checks if guess was wrong or right.
+        if (answer.getText().length()==0) { // makes sure you type something in guess area
+            result.setText("Type Latvian word");
+        }
+        else if (control.checkGuess(quest, guess)) { // checks if guess was wrong or right.
             result.setText("Correct!");
         }else
         result.setText("Wrong!");
-//        if (control.checkGuess(null, guess)) {
-//            result.setText("Type Latvian word");
-//        }
         
 // TODO add your handling code here:
     }//GEN-LAST:event_GuessActionPerformed
